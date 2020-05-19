@@ -38,14 +38,14 @@ getRandomQuote();
 function printQuote(quoteString) {
  
 let quoteCall = getRandomQuote();
-quoteCall += '<p class = "quote">randomQuote.quote</p>'
-'<p class ="source">randomQuote.author</p>'
+quoteCall += '<p class = "quote">randomQuote.quote</p>' + 
+'<p class ="source">randomQuote.author</p>';
 
  
- 
+document.getElementById('quote-box').innerHTML = quoteCall;
 
 }
-//document.getElementById('quote-box').innerHTML = quoteString;
+
 
 
 document.getElementById('load-quote').addEventListener("click", printQuote, true);
