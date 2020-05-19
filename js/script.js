@@ -1,15 +1,6 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+ //quotes array 
 
-/*** 
- * `quotes` array 
-***/
 let quotes = [
   {quote: 'My grandfather once told me that there were two kinds of people: those who do the work and those who take the credit. He told me to try to be in the first group; there was much less competition.', author: "Indira Gandhi"},
   {quote: 'If I want to knock a story off the front page, I just change my hairstyle.', author: "Hillary Clinton"},
@@ -26,13 +17,12 @@ let quotes = [
   {quote: 'It’s amazing that the amount of news that happens in the world every day always just exactly fits the newspaper', author: "Jerry Seinfeld"},
   {quote: 'Laugh a lot. It burns a lot of calories.', author: "Jessica Simpson"},
   
-
 ]
 
 
-/***
- * `getRandomQuote` function
-***/
+
+ //getRandomQuote` function
+
 function getRandomQuote(quoteList) {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]; // this code snippet was provided by Jacob Relkin on stackoverflow.com to answer the question "How can I select a random value from this array using JavaScript?"
   console.log(randomQuote);
@@ -42,54 +32,20 @@ function getRandomQuote(quoteList) {
 getRandomQuote();
 
 
-/***
- * `printQuote` function
-***/
+//printQuote function
 
-function printQuote() {
-  // 1. Create a variable that calls the getRandomQuote() 
-  // function
 
-  let quoteCall = getRandomQuote();
-
-  // 2. Create a variable that initiates your HTML string with 
-  // the first two <p></p> elements, their classNames, 
-  // and the quote and source properties, but leave off 
-  // the second closing `</p>` tag for now
+function printQuote(quoteString) {
+ 
+let quoteCall = getRandomQuote();
+quoteCall += '<p class = "quote">randomQuote.quote</p>'
+'<p class ="source">randomQuote.author</p>'
 
  
-  quoteCall = getRandomQuote();
-  console.log("this is the quote");
-  console.log(quoteCall['quote']);
+ 
 
-  console.log("\n\nthis is the author");
-  console.log(quoteCall['author']);
 }
-
-printQuote()
-   
-  // 3. Use an if statement to check if the citation property 
-  // exists, and if it does, concatenate a <span></span> 
-  // element, appropriate className, and citation property 
-  // to the HTML string
-
-  // 4. Use an if statement to check of the year property exists, 
-  // and if it does, concatenate a <span></span> element, 
-  // appropriate className, and year property to the HTML 
-  //string
-
-  // 5. After the two if statements, concatenate the closing </p> 
-  // tag to the HTML string
-
-  // 6. set the innerHTML of the quote-box div to equal the 
-  // complete HTML string
+//document.getElementById('quote-box').innerHTML = quoteString;
 
 
-
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
-
-//document.getElementById('load-quote').addEventListener("click", printQuote, true);
+document.getElementById('load-quote').addEventListener("click", printQuote, true);
