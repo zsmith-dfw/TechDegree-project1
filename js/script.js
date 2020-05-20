@@ -1,4 +1,5 @@
 
+ 
  //quotes array 
 
 let quotes = [
@@ -16,7 +17,10 @@ let quotes = [
   {quote: 'Haters are just confused admirers because they can’t figure out the reason why everyone loves you.', author: "Jeffree Star"},
   {quote: 'It’s amazing that the amount of news that happens in the world every day always just exactly fits the newspaper', author: "Jerry Seinfeld"},
   {quote: 'Laugh a lot. It burns a lot of calories.', author: "Jessica Simpson"},
-  
+  {quote: 'A martini. Shaken, not stirred.', author: "James Bond (Sean Connery)", citation: "Goldfinger", year: "1964"},
+  {quote: 'Carpe diem. Seize the day, boys. Make your lives extraordinary', author: "John Keating (Robin Williams)", citation: "Dead Poets Society", year: "1989"},
+  {quote: 'Nobody puts Baby in a corner.', author: "Johnny Castle (Patrick Swayze)", citation: "Dirty Dancing", year: "1987"}
+
 ]
 
 
@@ -35,14 +39,29 @@ getRandomQuote();
 //printQuote function
 
 
-function printQuote(quoteString) {
+function printQuote() {
  
 let quoteCall = getRandomQuote();
-quoteCall += '<p class = "quote">randomQuote.quote</p>' + 
-'<p class ="source">randomQuote.author</p>';
+  
 
  
-document.getElementById('quote-box').innerHTML = quoteCall;
+let quoteString = `<p class = "quote">${quoteCall.quote}</p>  
+<p class ="source">${quoteCall.author}`
+
+if (quotes.citation && quotes.year === true) {
+  quoteString += `<span class = "citation">${quoteCall.citation}</span>
+  <span class = "year">${quoteCall.year}</span></p>`;
+} else {
+  quoteString += `</p>`;
+}
+
+
+
+
+
+
+ 
+document.getElementById('quote-box').innerHTML = quoteString;
 
 }
 
