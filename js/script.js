@@ -46,14 +46,20 @@ let quoteCall = getRandomQuote();
 
  
 let quoteString = `<p class = "quote">${quoteCall.quote}</p>  
-<p class ="source">${quoteCall.author}`
+<p class ="source">${quoteCall.author}`;
 
-if (quotes.citation && quotes.year === true) {
-  quoteString += `<span class = "citation">${quoteCall.citation}</span>
-  <span class = "year">${quoteCall.year}</span></p>`;
-} else {
-  quoteString += `</p>`;
-}
+if (quotes.hasOwnProperty('citation')) {
+    quoteString += `<span class = "citation">${quoteCall.citation}</span>`
+  } else {
+    quoteString += `</p>`
+};
+
+if (quotes.hasOwnProperty('year')) {
+    quoteString += `<span class = "year">${quoteCall.year}</span></p>`
+  } else {
+    quoteString += `</p>`
+    
+  }; 
 
 
 
