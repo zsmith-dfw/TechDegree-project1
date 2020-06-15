@@ -34,6 +34,18 @@ function getRandomQuote(quoteList) {
   return randomQuote; 
 };
 
+function random_bg_color() {
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+console.log(bgColor);
+
+  document.body.style.background = bgColor;
+  }
+
+
+
 getRandomQuote(); // This is really only for testing purposes - it does not affect the program in any way. This was also a spot where I had console.log but it is now moved to the end.
 
 // The printQuote function starts off with no parameters because they are not necessary for this program. We define our two variables. QuoteCall stores our random quote from earlier and logs it for future use. The quoteString variable exists because we need it to hold our HTML string. If we used "quoteCall" for that, it would override our previous assignment and we don't want that.
@@ -53,10 +65,11 @@ function printQuote() {
       quoteString += `<span class = "year">${quoteCall.year}</span></p>`
       console.log(quoteString); // This is really just a convenience for a developer to ensure what the user sees matches the console and to troubleshoot issues.
   }; 
-
+  random_bg_color();
 document.getElementById('quote-box').innerHTML = quoteString; // This finally prints our quote in accordance with the HTML element tags defined in the index.HTML document. 
 
 };
+setInterval(printQuote, 3000);
 
 document.getElementById('load-quote').addEventListener("click", printQuote, true); // This results in a new quote every time the user clicks the button
 
